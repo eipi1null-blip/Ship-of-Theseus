@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ship of Theseus</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="applet" aria-label="Ship of Theseus interactive applet">
+    <section class="hero">
+      <div class="title-block">
+        <h1>Ship of Theseus</h1>
+        <p>Two histories. One original ship. A thousand quiet replacements.</p>
+      </div>
+      <div class="year-card">
+        <span class="label">Year</span>
+        <strong id="yearReadout">0</strong>
+      </div>
+    </section>
+
+    <section class="scene" aria-label="Ship comparison scene">
+      <article class="ship-panel ship-a">
+        <header>
+          <span class="badge">A</span>
+          <div>
+            <h2>Continuous Ship</h2>
+            <p>One plank replaced each year.</p>
+          </div>
+        </header>
+        <div class="ship-wrap">
+          <svg id="shipA" class="ship-svg" viewBox="0 0 520 310" role="img" aria-label="Ship A"></svg>
+        </div>
+        <div class="meter">
+          <div class="meter-row">
+            <span>Original planks remaining</span>
+            <strong id="aOriginalText">1000</strong>
+          </div>
+          <div class="bar"><span id="aOriginalBar"></span></div>
+          <div class="meter-row secondary">
+            <span>Replacement planks</span>
+            <strong id="aReplacementText">0</strong>
+          </div>
+        </div>
+      </article>
+
+      <article class="ship-panel ship-b">
+        <header>
+          <span class="badge">B</span>
+          <div>
+            <h2>Reassembled Ship</h2>
+            <p>One removed original plank added each year.</p>
+          </div>
+        </header>
+        <div class="ship-wrap">
+          <svg id="shipB" class="ship-svg" viewBox="0 0 520 310" role="img" aria-label="Ship B"></svg>
+        </div>
+        <div class="meter">
+          <div class="meter-row">
+            <span>Original planks recovered</span>
+            <strong id="bOriginalText">0</strong>
+          </div>
+          <div class="bar"><span id="bOriginalBar"></span></div>
+          <div class="meter-row secondary">
+            <span>Missing planks</span>
+            <strong id="bMissingText">1000</strong>
+          </div>
+        </div>
+      </article>
+      <svg id="transferLayer" class="transfer-layer" viewBox="0 0 1000 360" preserveAspectRatio="none" aria-hidden="true"></svg>
+    </section>
+
+    <section class="timeline-panel" aria-label="Timeline controls">
+      <button id="playButton" type="button" aria-label="Play timeline">Play</button>
+      <label class="slider-label">
+        <span>0</span>
+        <input id="yearSlider" type="range" min="0" max="1000" value="0" step="1">
+        <span>1000</span>
+      </label>
+      <button id="resetButton" type="button">Reset</button>
+    </section>
+
+    <section class="reflection" aria-label="Identity perspectives">
+      <button class="lens active" type="button" data-lens="history">
+        <span>Continuous history</span>
+        <strong id="historyChoice">A</strong>
+      </button>
+      <button class="lens" type="button" data-lens="material">
+        <span>Same material</span>
+        <strong id="materialChoice">B</strong>
+      </button>
+      <button class="lens" type="button" data-lens="mixed">
+        <span>Open question</span>
+        <strong>?</strong>
+      </button>
+      <p id="lensText">By continuous history, Ship A remains the ship that kept sailing through every repair.</p>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
